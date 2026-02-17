@@ -13,18 +13,10 @@ from collections import Counter
 nltk.download('stopwords')
 nltk.download('wordnet')
 
-
-mensajes = [
-    "En metro ayer nos atendieron bien y los desayunos son una delicia",
-    "Los mejores desayunos... Y sin duda el mejor cafÃ©, mi rÃ©cord personal son 5 tazas en un desayuno!!!",
-    "El servicio al cliente es excelente",
-    "En el puerto de la libertad dan un pesimo servicio",
-    "Pollo Campero El Salvador lo que mas me encanta fue el pichel de cafe",
-    "Por estar chambriando ni lo atienden a uno",
-    "¡¡Eso no sirve ya!!  de café es deberían mejorar eso es horrible como le sirven agua caliente en TODOS los restaurantes",
-    "Gran paja yo fui a metro al campero y le dije al que me despachÃ³ no hay hielo y me dijo si no sale es porque no hay, no es manera de hablarle a los clientes",
-    "Pollo Campero El Salvador y los benedictinos???"
-]
+mensajes_raw = []
+with open('COMENTARIOS_MINERIA_DE_DATOS.txt', 'r', encoding='utf-8') as f:
+    mensajes_raw = [linea.strip() for linea in f if linea.strip()]
+mensajes = [msg.lstrip('*').strip() for msg in mensajes_raw]
 
 
 def preprocesar_texto(texto):
