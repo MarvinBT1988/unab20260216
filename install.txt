@@ -1,0 +1,2 @@
+ pip install pandas scikit-learn nltk textblob matplotlib seaborn spacy wordcloud
+ python -m spacy download es_core_news_sm
